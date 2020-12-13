@@ -12,6 +12,27 @@ import com.atividade.crud.domain.DatabaseApplication;
 
 public class DisciplinaDAO {
 	
+	public static void inserir(Disciplina disciplina) {
+		Connection connection = DatabaseApplication.getConnection();
+		PreparedStatement stmt;
+		
+		String sql = "INSERT INTO disciplina (nome, professor, periodo, codigo_classroom) VALUES (?, ?, ?, ?)";
+		
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, disciplina.getNomeDisciplina());
+			stmt.setString(2, disciplina.getNomeProfessor());
+			stmt.setInt(3, disciplina.getPeriodo());
+			stmt.setString(4, disciplina.getCodigoSala());
+			
+			stmt.execute();
+			stmt.close();
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static List<Disciplina> listar() {
 		try {
 			Connection connection = DatabaseApplication.getConnection();

@@ -28,7 +28,10 @@ public class Disciplina {
 	
 	public void setCodigoSala(String codigoSala) { this.codigoSala = codigoSala; }
 	
+	public Disciplina() { super(); }
+	
 	public Disciplina(Integer idDisciplina, String nomeDisciplina, String nomeProfessor, Integer periodo, String codigoSala) {
+		super();
 		this.idDisciplina = idDisciplina;
 		this.nomeDisciplina = nomeDisciplina;
 		this.nomeProfessor = nomeProfessor;
@@ -37,6 +40,7 @@ public class Disciplina {
 	}
 	
 	public Disciplina(String nomeDisciplina, String nomeProfessor, Integer periodo, String codigoSala) {
+		super();
 		this.nomeDisciplina = nomeDisciplina;
 		this.nomeProfessor = nomeProfessor;
 		this.periodo = periodo;
